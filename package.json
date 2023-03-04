@@ -4,7 +4,9 @@
   "description": "Exercise app",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/PiotrDrechsler/goit-node-hw-01/issues"
   },
-  "homepage": "https://github.com/PiotrDrechsler/goit-node-hw-01#readme"
+  "homepage": "https://github.com/PiotrDrechsler/goit-node-hw-01#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
 }
