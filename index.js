@@ -7,4 +7,10 @@ const readFile = async () => {
     console.log(parsedData)
 }
 
-readFile();
+//zapis pliku
+const saveFile = async () => {
+    const dataToSave = "Some example data to save";
+    await fs.writeFile('./newFile.txt', dataToSave);
+}
+
+saveFile();
