@@ -2,6 +2,7 @@ const {
     listContacts,
     getContactById,
     removeContact,
+    addContact,
   } = require("./contacts.js");
 
-  removeContact();
+  addContact("Ann", "ann@gmail.com", "666-666-666");

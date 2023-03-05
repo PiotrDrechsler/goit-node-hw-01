@@ -22,7 +22,7 @@ const getContactById = async (id) => {
   return;
 };
   
-async function removeContact(id) {
+const removeContact = async (id) => {
   try {
     const contacts = await fetchContacts();
     const updatedContacts = contacts.filter(contact => contact.id !== id);
@@ -33,12 +33,23 @@ async function removeContact(id) {
   }
 }
   
-  function addContact(name, email, phone) {
-    // ...twój kod
+const addContact = async (name, email, phone) => {
+  try {
+    const contacts = await fetchContacts();
+    const id = contacts.length ? Math.max(...contacts.map(contact => parseInt(contact.id))) + 1 : 1;
+    const newContact = { id, name, email, phone };
+    const updatedContacts = [...contacts, newContact];
+    await fs.writeFile(contactsPath, JSON.stringify(updatedContacts));
+    console.log(`Contact "${name}" with id ${id} has been added.`);
+  } catch (error) {
+    console.error(error);
   }
+}
+
 
 module.exports = {
   listContacts,
   getContactById,
   removeContact,
+  addContact,
 };
