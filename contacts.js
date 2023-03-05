@@ -1,7 +1,6 @@
 const fs = require("fs").promises;
 const path = require('node:path');
 
-
 const contactsPath = path.resolve("./db/contacts.json");
 
 const fetchContacts = async () => {
@@ -15,17 +14,17 @@ const listContacts = async () => {
   return; 
 };
   
-const getContactById = async (id) => {
+const getContactById = async (contactId) => {
   const contacts = await fetchContacts();
-  const contact = contacts.find((contact) => contact.id === id);
+  const contact = contacts.find((contact) => contact.id === contactId);
   console.log(contact);
   return;
 };
   
-const removeContact = async (id) => {
+const removeContact = async (contactId) => {
   try {
     const contacts = await fetchContacts();
-    const updatedContacts = contacts.filter(contact => contact.id !== id);
+    const updatedContacts = contacts.filter(contact => contact.id !== contactId);
     await fs.writeFile(contactsPath, JSON.stringify(updatedContacts));
     console.log(`Contact with id ${id} has been removed.`);
   } catch (error) {
