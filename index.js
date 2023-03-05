@@ -1,3 +1,7 @@
-const { readFile, saveFile, addToFile, readDir } = require('./utils/filesystem.js');
+const {
+    listContacts,
+    getContactById,
+    removeContact,
+  } = require("./contacts.js");
 
-saveFile("testFile")
+  removeContact();
