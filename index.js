@@ -7,8 +7,6 @@ const {
     addContact,
   } = require("./contacts.js");
 
-const program = new Command();
-
 program
   .option("-a, --action <type>", "choose action")
   .option("-i, --id <type>", "user id")

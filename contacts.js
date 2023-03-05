@@ -26,7 +26,7 @@ const removeContact = async (contactId) => {
     const contacts = await fetchContacts();
     const updatedContacts = contacts.filter(contact => contact.id !== contactId);
     await fs.writeFile(contactsPath, JSON.stringify(updatedContacts));
-    console.log(`Contact with id ${id} has been removed.`);
+    console.log(`Contact with id ${contactId} has been removed.`);
   } catch (error) {
     console.error(error);
   }
